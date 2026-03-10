@@ -35,12 +35,31 @@ public class Main {
 
   // Iterative insertion sort method
     public static void insertionSortIterative(int[] arr) {
-        
+        for (int i = 1; i < arr.length; i++){
+            int start = arr[i];
+            int q = i - 1;
+
+            while (q >= 0 && arr[q] > start){
+                arr[q+1] = arr[q];
+                q--;
+            }
+            arr[q + 1] = start;
+        }
     }
 
     // Recursive insertion sort method
     public static void insertionSortRecursive(int[] arr, int n) {
-        
+        n--;
+        if (n >= 0){
+            insertionSortRecursive(arr, n);
+            int start = arr[n];
+            int q = n - 1;
+            while (q >= 0 && arr[q] > start){
+                arr[q+1] = arr[q];
+                q--;
+            }
+            arr[q + 1] = start;
+        }
     }
 
     // Method to print an array
